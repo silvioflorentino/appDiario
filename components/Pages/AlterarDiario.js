@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {View, Text, StyleSheet,TextInput,TouchableOpacity,Alert} from 'react-native';
 import Firebase from '../Firebase';
 
-export default function AlterarMusica({navigation,route}){
+export default function AlterarDiario({navigation,route}){
 
 const id = route.params.id;
 

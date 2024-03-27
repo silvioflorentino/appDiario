@@ -21,14 +21,14 @@ useEffect(()=>{
     query.forEach((doc) =>{
       lista.push({...doc.data(),id: doc.id});
     });
-  setdiario(lista);
+  setDiario(lista);
   });
 },[]);
 
   return(
 <View style={estilo.container}>
   <View >
-    <Text style={estilo.titulo}> Lista de Músicas </Text>
+    <Text style={estilo.titulo}> Meu Diário </Text>
   </View>
 
   <FlatList 
@@ -39,14 +39,16 @@ useEffect(()=>{
 
 <TouchableOpacity onPress={()=>navigation.navigate("AlterarDiario",{
   id: item.id,
-  banda: item.artistabanda,
-  genero: item.genero,
-  diario: item.diario,
-  local: item.diario
+  titulo: item.titulo,
+  texto: item.texto,
+  data: item.data,
+  local: item.local
 })}>
     <View style={estilo.itens}>
-<Text style={estilo.titulobanda}> Artista/Banda: <Text style={estilo.textobanda}>{item.artistabanda} </Text></Text><Text style={estilo.titulobanda}> Genêro: <Text style={estilo.textobanda}>{item.genero} </Text></Text>
-<Text style={estilo.titulobanda}> Música: <Text style={estilo.textobanda}>{item.diario} </Text></Text>
+<Text style={estilo.titulodiario}> Titulo: <Text style={estilo.textodiario}>{item.titulo} </Text></Text>
+<Text style={estilo.titulodiario}> Texto: <Text style={estilo.textodiario}>{item.texto} </Text></Text>
+<Text style={estilo.titulodiario}> Data: <Text style={estilo.textodiario}>{item.data} </Text></Text>
+<Text style={estilo.titulodiario}> Local: <Text style={estilo.textodiario}>{item.local} </Text></Text>
     </View>
 </TouchableOpacity>
 
@@ -84,18 +86,18 @@ itens:{
   padding: 10,
  
 },
-titulobanda:{
+titulodiario:{
 fontSize: 13,
 color:'#fff'
 },
-textobanda:{
+textodiario:{
 fontSize: 15,
 fontWeight: "bold",
 },
 diarios:{
   flexDirection: 'row',
   justifyContent: 'space-between',
-    marginHorizontal: 10,
+  marginHorizontal: 10,
   marginVertical: 10,
   padding: 10,
   backgroundColor: '#0000CD',
